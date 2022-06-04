@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import './style.scss'
+import {useDispatch, useSelector} from "react-redux";
+import Header from './components/Header/Header'
+import {addItem} from "./redux/reducers/Todo";
+import BasicFolder from "./components/BasicFolder/BasicFolder";
 
 function App() {
+
+    const todo = useSelector((store)=> store.Todo.todos)
+    const dispatch = useDispatch()
+
+    const [popup,setPopup] = useState(false)
+    const [title,setTitle] = useState('')
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <aside className="aside">
+               <Header/>
+            <div className="aside__myTask">
+                    <BasicFolder/>
+            </div>
+            <addItem
+            />
+        </aside>
     </div>
   );
 }

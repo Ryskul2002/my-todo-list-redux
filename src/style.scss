@@ -1,0 +1,156 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  list-style-type: none;
+}
+
+
+.aside{
+  padding: 58px 19px 0 19px;
+  width: 200px;
+  background-color: #E5E5E5;
+  height: 100vh;
+  &__allTask{
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    transition: .3s;
+    padding: 10px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    &-title{
+      font-family: 'Roboto',sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.2px;
+      color: #000000;
+    }
+    &:hover{
+      background-color: #FFFFFF;
+      transition: .3s;
+    }
+  }
+  &__myTask{
+    transition: .3s;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 48px;
+    position: relative;
+    &-btn{
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 0;
+      right: 12px;
+      position: absolute;
+    }
+    &:hover{
+    }
+  }
+  &__list{
+
+  }
+  &__item{
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 16px;
+    letter-spacing: 0.15px;
+    padding: 10px;
+    transition: .3s;
+    &:hover{
+      background-color: #FFFFFF;
+      transition: .3s;
+      border-radius: 5px;
+    }
+    &:hover> .aside__myTask-btn{
+      font-size: 15px;
+      transition: .3s;
+      color: red;
+    }
+  }
+  &__btn{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 13px;
+    &-add{
+      font-family: 'Lato',sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.15px;
+      color: #767676;
+    }
+  }
+  &__addItem{
+    &-value{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      background: #FFFFFF;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+    &-input{
+      width: 200px;
+      height: 32px;
+      margin-bottom: 20px;
+      font-family: 'Lato',sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.15px;
+      border: 1px solid #EFEFEF;
+      outline: none;
+      color: #C7C7C7;
+      &::placeholder{
+        font-family: 'Lato',sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.15px;
+        opacity: 50%;
+      }
+    }
+    &-close{
+      position: absolute;
+      top: 0;
+      right: -15px;
+      cursor: pointer;
+      transform: translate(-50%,-50%);
+    }
+    &-btn{
+      width: 200px;
+      height: 37px;
+      font-family: 'Lato',sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      letter-spacing: 0.15px;
+      color: #FFFFFF;
+      background: #4DD599;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
