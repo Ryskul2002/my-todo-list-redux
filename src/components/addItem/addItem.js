@@ -1,7 +1,16 @@
 import React from 'react';
 import {addItem} from "../../redux/reducers/Todo";
+import {useDispatch} from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
-const AddItem = () => {
+
+const AddItem = ({popup,setPopup,title,setTitle}) => {
+
+    const dispatch = useDispatch()
+
     return (
         <div className="aside__addItem">
             <button type="button" className="aside__btn" onClick={()=> setPopup(true)}>

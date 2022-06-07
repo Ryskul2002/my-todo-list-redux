@@ -1,12 +1,11 @@
 import React from 'react';
 import {deleteTask} from "../../redux/reducers/Todo";
 import {useDispatch, useSelector} from "react-redux";
-import {} from ''
 
 const BasicFolder = () => {
 
     const todo = useSelector((store)=> store.Todo.todos)
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
 
 
     return (
