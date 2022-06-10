@@ -2,7 +2,7 @@ import React from 'react';
 import {deleteTask} from "../../redux/reducers/Todo";
 import {useDispatch, useSelector} from "react-redux";
 
-const BasicFolder = () => {
+const TodoList = ({setAll}) => {
 
     const todo = useSelector((store)=> store.Todo.todos)
     const dispatch = useDispatch()
@@ -12,7 +12,7 @@ const BasicFolder = () => {
         <div>
             <ul className="aside__list">
                 {todo.map((item)=>(
-                    <li className="aside__item" key={item.id}>{item.title}
+                    <li onClick={()=> setAll(item.title)} className="aside__item" key={item.id}>{item.title}
                         <button className="aside__myTask-btn" type="button" onClick={()=> dispatch(deleteTask(item.id))}>x</button>
                     </li>
                 ))}
@@ -21,4 +21,4 @@ const BasicFolder = () => {
     );
 };
 
-export default BasicFolder;
+export default TodoList;

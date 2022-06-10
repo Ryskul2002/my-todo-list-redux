@@ -9,6 +9,9 @@
   display: flex;
 }
 
+
+
+
 .aside{
   padding: 58px 19px 0 19px;
   width: 240px;
@@ -51,11 +54,6 @@
       right: 12px;
       position: absolute;
     }
-    &:hover{
-    }
-  }
-  &__list{
-
   }
   &__item{
     font-family: 'Roboto',sans-serif;
@@ -111,6 +109,10 @@
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
       border-radius: 10px;
     }
+    &-form{
+      display: flex;
+      flex-direction: column;
+    }
     &-input{
       width: 200px;
       height: 32px;
@@ -162,43 +164,31 @@
 }
 
 
-
+// allFolder 2
 
 .allFolder{
-  padding: 52px 0 0 57px;
-  &__title{
-    position: relative;
-    &-impor{
-      font-family: 'Montserrat',sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 39px;
-      color: #64C4ED;
-      position: relative;
-      margin-bottom: 52px;
-      &::before{
-        content: '';
-        position: absolute;
-        width: 100vh;
-        height: 2px;
-        background-color: #F2F2F2;
-        top: 58px;
-      }
-    }
-  }
-  &__icon{
-    position: absolute;
-    top: 5px;
-    font-size: 28px;
-    color: #DFDFDF;
-    left: 230px;
-  }
+  padding: 56px 0 0 57px;
+  position: relative;
+ &__tasks{
+   margin-bottom: 40px;
+   &-title{
+     font-family: 'Montserrat',sans-serif;
+     font-style: normal;
+     font-weight: 700;
+     font-size: 32px;
+     line-height: 39px;
+     color: #64C4ED;
+     width: 60vw;
+     border-bottom: 2px solid #F2F2F2;
+     padding-bottom: 20px;
+     margin-bottom: 30px;
+   }
+ }
   &__list{
-  display: flex;
+
+    display: flex;
     flex-direction: column;
     row-gap: 21px;
-    margin-bottom: 41px;
   }
   &__item{
     font-family: 'Lato',sans-serif;
@@ -209,20 +199,131 @@
     color: #000000;
     display: flex;
     column-gap: 15px;
-    &-checkbox{
-      border: 2px solid #E8E8E8;
-      width: 20px;
-      height: 20px;
+    position: relative;
+    &-done{
+      border: 1px solid #E8E8E8;
       border-radius: 50%;
+      width: 20px;
+      cursor: pointer;
+      user-select: none;
+      &.active{
+        font-size: 17px;
+        color: white;
+        border: none;
+        background-color: #4DD599;
+        width: 20px;
+        text-align: center;
+      }
+    }
+  }
+  &__delete{
+    position: absolute;
+    left: 900px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover{
+      color: red;
+      transition: .2s;
+    }
+  }
+  &__noTask{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #C9D1D3;
+  }
+}
+
+.task{
+  &__titleChange{
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    border-bottom: 2px solid #F2F2F2;
+    padding-bottom: 20px;
+    width: 60vw;
+  }
+  &__title{
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #64C4ED;
+  }
+  &__rotate{
+    color: #DFDFDF;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  &__input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #C7C7C7;
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #64C4ED;
+    width: 300px;
+  }
+  &__list{
+    margin-top: 31px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 21px;
+  }
+  &__item{
+    font-family: 'Lato',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    display: flex;
+    column-gap: 15px;
+    &-done{
+      border: 1px solid #E8E8E8;
+      border-radius: 50%;
+      width: 20px;
       cursor: pointer;
       &.active{
         background-color: #4DD599;
+        color: #FFFFFF;
+        text-align: center;
         border: none;
-        content: '✔';
+        user-select: none;
+      }
+    }
+    &-delete{
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      transition: .2s;
+      &:hover{
+        color: red;
+        transition: .2s;
+      }
+    }
+    &-title{
+      font-family: 'Lato',sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000000;
+      &.active{
+        text-decoration: line-through;
+        text-decoration-color: #000000;
       }
     }
   }
 }
+
+
 
 
 
