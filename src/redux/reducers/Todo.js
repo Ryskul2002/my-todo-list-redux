@@ -7,6 +7,7 @@ let ADDTASK = 'ADDTASK'
 let DONE = 'DONE'
 let DELETE_ITEM = 'DELETE_ITEM'
 let CHANGE = 'CHANGE'
+let CHANGE_DONE = 'CHANGE_DONE'
 
 const initialState = {
     todos: [{
@@ -15,12 +16,12 @@ const initialState = {
         isChange: false,
         task: [{
                 id : uuidv4(),
-                value : 'after buy tickets',
+                input : 'after buy tickets',
                 isDone : false
             },
             {
                 id : uuidv4(),
-                value : 'i want to go to cinema with girl',
+                input : 'i want to go to cinema with girl',
                 isDone : false
             }]
     },
@@ -30,7 +31,7 @@ const initialState = {
             isChange: false,
             task: [{
                 id : uuidv4(),
-                value : '8555',
+                input : '8555',
                 isDone : false
             }]
         }
@@ -64,14 +65,14 @@ export default (state = initialState, action) => {
                 todos: state.todos.map((item) => {
                     if (item.id === action.id) {
                         return {
-                            ...item, task: [...item.task, {
+                            ...item, task: [...item.task.filter((el)=> el.input === action.names ? alert('У вас уже есть такая задача') : el), {
                                 id: uuidv4(),
-                                value : action.values,
+                                input : action.names,
                                 isDone : false,
                             }]
                         }
                     } else {
-                        return null
+                        return item
                     }
                 })
             }
@@ -115,6 +116,17 @@ export default (state = initialState, action) => {
                     }
                 })
             }
+        } case CHANGE_DONE : {
+            return {
+                ...state,
+                todos: state.todos.map((item)=>{
+                    if (item.id === action.id){
+                        return {...item,title : item.title = action.changeTitle} && {...item,isChange : !item.isChange}
+                    } else {
+                        return item
+                    }
+                })
+            }
         }
         default : return state
     }
@@ -133,9 +145,9 @@ export const deleteTask = (id) => {
     }
 }
 
-export const addTask = (values, id) => {
+export const addTask = (names, id) => {
     return (dispatch) => {
-        return dispatch({type: ADDTASK, values,id})
+        return dispatch({type: ADDTASK, names,id})
     }
 }
 
@@ -154,5 +166,11 @@ export const deleteTaskItem = (id,itemId) => {
 export const changeTask = (id) =>{
     return(dispatch) => {
         return dispatch({type:CHANGE,changeId : id})
+    }
+}
+
+export const changeDone = (title,id) => {
+    return(dispatch) =>{
+        return dispatch({type:CHANGE_DONE,changeTitle : title,id})
     }
 }
